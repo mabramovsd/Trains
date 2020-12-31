@@ -27,5 +27,13 @@ namespace Tickets
             command.Dispose();
             return results;
         }
+
+        public static void Insert(string Text)
+        {
+            MySqlCommand command = new MySqlCommand(Text, conn);
+            DbDataReader reader = command.ExecuteReader();
+            reader.Close();
+            command.Dispose();
+        }
     }
 }

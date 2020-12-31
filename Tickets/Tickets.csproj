@@ -49,29 +49,95 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AddTrain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AddTrain.Designer.cs">
+      <DependentUpon>AddTrain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminBookingForm.Designer.cs">
+      <DependentUpon>AdminBookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminRunsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminRunsForm.Designer.cs">
+      <DependentUpon>AdminRunsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminTrainsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminTrainsForm.Designer.cs">
+      <DependentUpon>AdminTrainsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUsersForm.Designer.cs">
+      <DependentUpon>AdminUsersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookedForRun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BookedForRun.Designer.cs">
+      <DependentUpon>BookedForRun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RegistrationForm.cs">
+    <Compile Include="RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RegistrationForm.Designer.cs">
-      <DependentUpon>RegistrationForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RouteForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="RouteForm.Designer.cs">
-      <DependentUpon>RouteForm.cs</DependentUpon>
+    <Compile Include="RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLClass.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="AddTrain.resx">
+      <DependentUpon>AddTrain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminBookingForm.resx">
+      <DependentUpon>AdminBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminRunsForm.resx">
+      <DependentUpon>AdminRunsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminTrainsForm.resx">
+      <DependentUpon>AdminTrainsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUsersForm.resx">
+      <DependentUpon>AdminUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BookedForRun.resx">
+      <DependentUpon>BookedForRun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -82,8 +148,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RouteForm.resx">
-      <DependentUpon>RouteForm.cs</DependentUpon>
+    <EmbeddedResource Include="RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

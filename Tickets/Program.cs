@@ -21,9 +21,11 @@ namespace Tickets
             SQLClass.conn.ConnectionString =
                 "Server=localhost;Database=trains;port=3306;User Id=root";
             SQLClass.conn.Open();
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
 
             SQLClass.conn.Close();
         }
+
+        public static string Login = "Mikki";
     }
 }

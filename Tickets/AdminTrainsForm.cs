@@ -1,0 +1,62 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
+
+namespace Tickets
+{
+    public partial class AdminTrainsForm : Form
+    {
+        public AdminTrainsForm()
+        {
+            InitializeComponent();
+            Refresh(null, null);
+        }
+
+        private void AdminTrainsForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddTrain atf = new AddTrain();
+            atf.Show();
+        }
+
+        private void Refresh(object sender, EventArgs e)
+        {
+            trainsDGV.Rows.Clear();
+            List<string> cities = SQLClass.Select("SELECT Name FROM Cities ORDER BY Name");
+            Column3.Items.Clear();
+            Column4.Items.Clear();
+            Column3.Items.AddRange(cities.ToArray());
+            Column4.Items.AddRange(cities.ToArray());
+
+            List<string> trains =
+                SQLClass.Select("SELECT Id, Name, CityFrom, CityTo, Days, Places FROM Trains ORDER BY Id");
+
+
+            for (int i = 0; i < trains.Count; i += 6)
+            {
+                string[] row = new string[6];
+                for (int j = i; j < i + 6; j++)
+                    row[j - i] = trains[j];
+
+                //Города
+                row[2] = SQLClass.Select("SELECT Name FROM Cities WHERE Id = " + row[2])[0];
+                row[3] = SQLClass.Select("SELECT Name FROM Cities WHERE Id = " + row[3])[0];
+
+                trainsDGV.Rows.Add(row);
+            }
+        }
+
+        private void trainsDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 6)
+            {
+                AddTrain at = new AddTrain(trainsDGV.Rows[e.RowIndex].Cells[0].Value.ToString());
+                at.Show();
+            }
+        }
+    }
+}
