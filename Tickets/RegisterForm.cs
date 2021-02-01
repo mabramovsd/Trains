@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class RegisterForm : Form
+    public partial class RegisterForm : UserControl
     {
         public RegisterForm()
         {
             InitializeComponent();
+            if (MainForm.pages.Count > MainForm.pagePos + 1)
+                MainForm.pages.RemoveRange(MainForm.pagePos + 1, MainForm.pages.Count - MainForm.pagePos - 1);
+            MainForm.pages.Add(this);
+            MainForm.pagePos++;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +36,7 @@ namespace Tickets
                 "'" + loginTB.Text + "', '" + fioTB.Text + "', '" + passTB.Text + "')");
             MessageBox.Show("Теперь можно входить в систему");
 
-            Close();
+            //Close();
         }
     }
 }

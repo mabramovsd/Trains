@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class BookedForRun : Form
+    public partial class BookedForRun : UserControl
     {
         public BookedForRun(string RunId, string runInfo)
         {
             InitializeComponent();
+            if (MainForm.pages.Count > MainForm.pagePos + 1)
+                MainForm.pages.RemoveRange(MainForm.pagePos + 1, MainForm.pages.Count - MainForm.pagePos - 1);
+            MainForm.pages.Add(this);
+            MainForm.pagePos++;
 
             label1.Text = "Пассажиры поезда " + runInfo;
 

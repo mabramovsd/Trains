@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class AdminRunsForm : Form
+    public partial class AdminRunsForm : UserControl
     {
         public AdminRunsForm()
         {
             InitializeComponent();
+            if (MainForm.pages.Count > MainForm.pagePos + 1)
+                MainForm.pages.RemoveRange(MainForm.pagePos + 1, MainForm.pages.Count - MainForm.pagePos - 1);
+            MainForm.pages.Add(this);
+            MainForm.pagePos++;
         }
 
         private void AdminRunsForm_Load(object sender, EventArgs e)
@@ -33,11 +37,11 @@ namespace Tickets
             DateTime dt2 = dateTimePicker2.Value;
             List<string> trains = SQLClass.Select("SELECT Id, Days FROM Trains");
 
-            SQLClass.Insert("DELETE FROM Orders WHERE RunId IN (SELECT Id FROM Runs WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%y')" +
-                " AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%y'))");
+            SQLClass.Insert("DELETE FROM Orders WHERE RunId IN (SELECT Id FROM Runs WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%Y')" +
+                " AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%Y'))");
 
-            SQLClass.Insert("DELETE FROM Runs WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%y')" +
-                " AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%y')");
+            SQLClass.Insert("DELETE FROM Runs WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%Y')" +
+                " AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%Y')");
 
             while (dt1 < dt2)
             {
@@ -50,7 +54,7 @@ namespace Tickets
                     if (trains[i + 1].Contains(day.ToString()))
                     {
                         SQLClass.Insert("INSERT INTO Runs(TrainId, DT)" +
-                            "VALUES (" + trains[i] + " , STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%y'))");
+                            "VALUES (" + trains[i] + " , STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%Y'))");
                     }
                 }
 
@@ -77,7 +81,7 @@ namespace Tickets
                 "SELECT Runs.Id, Trains.Places, Concat(Name, ' ('," +
                 "(SELECT Name FROM Cities WHERE Id = Trains.CityFrom), ' - ', " +
                 "(SELECT Name FROM Cities WHERE Id = Trains.CityTo), ')'), DT FROM Runs JOIN Trains ON Trains.Id = Runs.TrainId" +
-                " WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%y') AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%y')" +
+                " WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%Y') AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%Y')" +
                 " ORDER BY DT");
 
 

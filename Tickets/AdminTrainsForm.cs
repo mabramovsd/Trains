@@ -4,12 +4,16 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class AdminTrainsForm : Form
+    public partial class AdminTrainsForm : UserControl
     {
         public AdminTrainsForm()
         {
             InitializeComponent();
             Refresh(null, null);
+            if (MainForm.pages.Count > MainForm.pagePos + 1)
+                MainForm.pages.RemoveRange(MainForm.pagePos + 1, MainForm.pages.Count - MainForm.pagePos - 1);
+            MainForm.pages.Add(this);
+            MainForm.pagePos++;
         }
 
         private void AdminTrainsForm_Load(object sender, EventArgs e)
@@ -55,7 +59,8 @@ namespace Tickets
             if (e.ColumnIndex == 6)
             {
                 AddTrain at = new AddTrain(trainsDGV.Rows[e.RowIndex].Cells[0].Value.ToString());
-                at.Show();
+                MainForm.mainPanel.Controls.Clear();
+                MainForm.mainPanel.Controls.Add(at);
             }
         }
     }

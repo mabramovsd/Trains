@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class AdminBookingForm : Form
+    public partial class AdminBookingForm : UserControl
     {
         public AdminBookingForm()
         {
             InitializeComponent();
+            if (MainForm.pages.Count > MainForm.pagePos + 1)
+                MainForm.pages.RemoveRange(MainForm.pagePos + 1, MainForm.pages.Count - MainForm.pagePos - 1);
+            MainForm.pages.Add(this);
+            MainForm.pagePos++;
             button1_Click(null, null);
         }
 
@@ -38,8 +42,8 @@ namespace Tickets
                 SQLClass.Select(
                     "SELECT Id, Login, RunId, RunId, CityFrom, CityTo, Place, Status" +
                     " FROM Orders WHERE RunId IN " +
-                        "(SELECT Id FROM Runs WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%y')" +
-                        " AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%y')) ORDER BY Orders.Id");
+                        "(SELECT Id FROM Runs WHERE DT BETWEEN STR_TO_DATE('" + dt1.ToShortDateString() + "', '%d.%m.%Y')" +
+                        " AND STR_TO_DATE('" + dt2.ToShortDateString() + "', '%d.%m.%Y')) ORDER BY Orders.Id");
 
 
             for (int i = 0; i < orders.Count; i += 8)

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class AddTrain : Form
+    public partial class AddTrain : UserControl
     {
         string trainId;
         int comboY = 0;
@@ -19,6 +19,11 @@ namespace Tickets
         {
             trainId = TrainId;
             InitializeComponent();
+            if (MainForm.pages.Count > MainForm.pagePos + 1)
+                MainForm.pages.RemoveRange(MainForm.pagePos + 1, MainForm.pages.Count - MainForm.pagePos - 1);
+            MainForm.pages.Add(this);
+            MainForm.pagePos++;
+
             comboY = comboBox1.Location.Y + 50;
             cities = SQLClass.Select("SELECT Name FROM Cities ORDER BY Name");
             comboBox1.Items.AddRange(cities.ToArray());

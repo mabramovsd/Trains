@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Tickets
 {
-    public partial class OrderForm : Form
+    public partial class OrderForm : UserControl
     {
         string RunId;
         string CityFrom;
@@ -18,6 +18,11 @@ namespace Tickets
         public OrderForm(string runId, string cityFrom, string cityTo)
         {
             InitializeComponent();
+            if (MainForm.pages.Count > MainForm.pagePos + 1)
+                MainForm.pages.RemoveRange(MainForm.pagePos + 1, MainForm.pages.Count - MainForm.pagePos - 1);
+            MainForm.pages.Add(this);
+            MainForm.pagePos++;
+
             RunId = runId;
             CityFrom = cityFrom;
             CityTo = cityTo;

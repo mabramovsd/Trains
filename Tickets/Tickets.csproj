@@ -50,43 +50,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddTrain.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AddTrain.Designer.cs">
       <DependentUpon>AddTrain.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminBookingForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminBookingForm.Designer.cs">
       <DependentUpon>AdminBookingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminForm.Designer.cs">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminRunsForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminRunsForm.Designer.cs">
       <DependentUpon>AdminRunsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminTrainsForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminTrainsForm.Designer.cs">
       <DependentUpon>AdminTrainsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminUsersForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="AdminUsersForm.Designer.cs">
       <DependentUpon>AdminUsersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="BookedForRun.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="BookedForRun.Designer.cs">
       <DependentUpon>BookedForRun.cs</DependentUpon>
@@ -98,7 +98,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="OrderForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="OrderForm.Designer.cs">
       <DependentUpon>OrderForm.cs</DependentUpon>
@@ -106,12 +106,18 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterForm.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SQLClass.cs" />
+    <Compile Include="TicketsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TicketsList.Designer.cs">
+      <DependentUpon>TicketsList.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddTrain.resx">
       <DependentUpon>AddTrain.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +156,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterForm.resx">
       <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TicketsList.resx">
+      <DependentUpon>TicketsList.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
